@@ -104,8 +104,15 @@ class TemplateProcessor
      *
      * @param string $documentTemplate The fully qualified template filename
      */
-    public function __construct($documentTemplate)
+    public function __construct(string $documentTemplate, ?string $macroOpeningChars = '${', ?string $macroClosingChars = '}')
     {
+        if (!is_null($macroOpeningChars)) {
+            static::$macroOpeningChars = $macroOpeningChars;
+        }
+
+        if (!is_null($macroClosingChars)) {
+            static::$macroClosingChars = $macroClosingChars;
+        }
         // Temporary document filename initialization
         $this->tempDocumentFilename = tempnam(Settings::getTempDir(), 'PhpWord');
         if (false === $this->tempDocumentFilename) {
