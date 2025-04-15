@@ -1069,17 +1069,19 @@ class TemplateProcessor
      */
     protected function fixBrokenMacros($documentPart)
     {
-        $brokenMacroOpeningChars = substr(self::$macroOpeningChars, 0, 1);
-        $endMacroOpeningChars = substr(self::$macroOpeningChars, 1);
-        $macroClosingChars = self::$macroClosingChars;
+        // $brokenMacroOpeningChars = substr(self::$macroOpeningChars, 0, 1);
+        // $endMacroOpeningChars = substr(self::$macroOpeningChars, 1);
+        // $macroClosingChars = self::$macroClosingChars;
 
-        return preg_replace_callback(
-            '/\\' . $brokenMacroOpeningChars . '(?:\\' . $endMacroOpeningChars . '|[^{$]*\>\{)[^' . $macroClosingChars . '$]*\}/U',
-            function ($match) {
-                return strip_tags($match[0]);
-            },
-            $documentPart
-        );
+        // return preg_replace_callback(
+        //     '/\\' . $brokenMacroOpeningChars . '(?:\\' . $endMacroOpeningChars . '|[^{$]*\>\{)[^' . $macroClosingChars . '$]*\}/U',
+        //     function ($match) {
+        //         return strip_tags($match[0]);
+        //     },
+        //     $documentPart
+        // );
+
+        return $documentPart;
     }
 
     /**
